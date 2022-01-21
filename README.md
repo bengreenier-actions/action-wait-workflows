@@ -1,5 +1,7 @@
 # action-wait-workflows
 
+[![build-test](https://github.com/bengreenier-actions/action-wait-workflows/actions/workflows/test.yml/badge.svg)](https://github.com/bengreenier-actions/action-wait-workflows/actions/workflows/test.yml)
+
 Waits for workflows to complete for a given commit before proceeding.
 
 ### Inputs
