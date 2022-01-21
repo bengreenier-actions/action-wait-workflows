@@ -28,3 +28,5 @@ jobs:
           workflow_conclusion: success
           # 8m
           timeout_ms: 480000
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
