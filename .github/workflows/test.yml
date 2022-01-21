@@ -21,10 +21,21 @@ jobs:
       - "build"
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - name: Wait for slowpoke to finish for this commit
+        uses: ./
         with:
           commit: ${{ github.sha }}
           workflow: slowpoke.yml
+          workflow_conclusion: success
+          # 8m
+          timeout_ms: 480000
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Wait for slowpoke2 to finish for this commit (if not already done)
+        uses: ./
+        with:
+          commit: ${{ github.sha }}
+          workflow: slowpoke2.yml
           workflow_conclusion: success
           # 8m
           timeout_ms: 480000
