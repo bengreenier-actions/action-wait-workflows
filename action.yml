@@ -1,11 +1,21 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'action-wait-workflows'
+description: 'Waits for workflows to complete for a given commit before proceeding'
+author: 'bengreenier-actions'
 inputs:
-  milliseconds: # change this
+  commit:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: "The commit to retrieve runs for"
+  workflow:
+    required: true
+    description: "The workflow to wait for"
+  workflow_conclusion:
+    required: true
+    description: "The type of conclusion you desire"
+  timeout_ms:
+    required: false
+    description: "The max number of ms to wait for"
+    # 5m
+    default: '300000'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

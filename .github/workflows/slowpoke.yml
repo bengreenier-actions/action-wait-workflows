@@ -1,0 +1,14 @@
+name: 'slowpoke'
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  sleep: # Just a job that takes a while
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 5m
+
