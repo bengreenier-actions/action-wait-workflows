@@ -10,7 +10,7 @@ jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           npm install
       - run: |
@@ -20,7 +20,7 @@ jobs:
     needs:
       - "build"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Wait for slowpoke to finish for this commit
         uses: ./
         with:
